@@ -12,6 +12,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 
 import { environment } from 'src/environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent],
@@ -21,6 +23,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     BrowserAnimationsModule,
     SharedModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
   ],
   providers: [],
   bootstrap: [AppComponent],
