@@ -1,1 +1,17 @@
-<p>login-page works!</p>
+<main>
+  <div *ngIf="!this.auth.currentUser">
+    <h1>Login</h1>
+    <button appGoogleSignIn mat-raised-button>
+      <div class="google-sing-in">
+        <img src="assets/logos/google.svg" height="20" alt="Google logo" />
+        <span>Sign in with Google</span>
+      </div>
+    </button>
+  </div>
+  <div *ngIf="this.auth.currentUser">
+    <h1>Logged in as {{ this.auth.currentUser.displayName }}</h1>
+    <button mat-raised-button color="accent" (click)="this.auth.signOut()">
+      Sign out
+    </button>
+  </div>
+</main>

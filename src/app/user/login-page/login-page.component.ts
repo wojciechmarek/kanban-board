@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { FirebaseApp } from '@angular/fire/app';
+import { Auth, getAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss']
+  styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
+  auth: Auth;
 
+  constructor(private afService: FirebaseApp) {
+    this.auth = getAuth(this.afService);
+    this.auth.currentUser?.displayName;
+  }
 }
