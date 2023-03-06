@@ -10,8 +10,7 @@ import { Auth, getAuth } from '@angular/fire/auth';
 export class LoginPageComponent {
   auth: Auth;
 
-  constructor(private afService: FirebaseApp) {
-    this.auth = getAuth(this.afService);
-    this.auth.currentUser?.displayName;
+  constructor(private firebaseService: FirebaseApp) {
+    this.auth = getAuth(this.firebaseService);
   }
 }
