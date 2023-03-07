@@ -29,31 +29,31 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="logo" routerLink="/">🔥 Kanban board</span>
+      <span class="logo" routerLink="/">Kanban board</span>
       <span class="fill-space"></span>
       <div *ngIf="!($isHandset | async)">
-        <a class="bar-link" mat-button routerLink="/kanban">💎 Kanban</a>
-        <a class="bar-link" mat-button routerLink="/custmers">🦠 SSR Demo</a>
+        <a class="bar-link" mat-button routerLink="/kanban">Kanban</a>
+        <a class="bar-link" mat-button routerLink="/custmers">SSR Demo</a>
 
-        <a class="bar-link" mat-button routerLink="/login">🪵 Login</a>
+        <a class="bar-link" mat-button routerLink="/login">Login</a>
       </div>
 
       <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more-vert</mat-icon>
+        <mat-icon>more_horiz</mat-icon>
       </button>
 
       <mat-menu #menu="matMenu">
         <a mat-menu-item routerLink="/facebook">
-          <i>📚</i>
-          <span>Chat on facebook</span>
+          <i>😇</i>
+          <span>Author's Github</span>
         </a>
         <a mat-menu-item routerLink="/github">
-          <i>🚧</i>
-          <span>Chat on github</span>
+          <i>😻</i>
+          <span>Project's repo</span>
         </a>
-        <a mat-menu-item routerLink="/twitter">
-          <i>💰</i>
-          <span>Chat on twitter</span>
+        <a mat-menu-item href="https://giphy.com/search/cat" target="_blank">
+          <i>😛</i>
+          <span>See some cats memes</span>
         </a>
       </mat-menu>
     </mat-toolbar>

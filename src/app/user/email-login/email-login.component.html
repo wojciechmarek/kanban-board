@@ -1,18 +1,18 @@
 <mat-card>
   <div *ngIf="isSignup">
-    <h3>Create Account</h3>
+    <h3>Create account</h3>
 
     <button
       mat-stroked-button
       (click)="changeType('login')"
-      class="new-returning-button"
+      class="button-bottom-margin"
     >
       Returning user?
     </button>
   </div>
 
   <div *ngIf="isLogin">
-    <h3>Sign In</h3>
+    <h3>Sign-in</h3>
     <button
       size="small"
       mat-stroked-button
@@ -50,7 +50,7 @@
     </mat-form-field>
 
     <mat-form-field
-      [color]="email?.valid ? 'accent' : 'warn'"
+      [color]="email?.valid ? 'primary' : 'warn'"
       *ngIf="!isPasswordReset"
     >
       <input
@@ -67,7 +67,7 @@
     </mat-form-field>
 
     <mat-form-field
-      [color]="passwordDoesMatch ? 'primary' : 'warn'"
+      [color]="email?.valid ? 'primary' : 'warn'"
       *ngIf="isSignup"
     >
       <input
@@ -100,6 +100,7 @@
       mat-raised-button
       color="accent"
       type="submit"
+      class="button-bottom-margin"
       [disabled]="form.invalid || !passwordDoesMatch || loading"
     >
       Submit
