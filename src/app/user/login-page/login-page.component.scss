@@ -12,13 +12,17 @@ button {
   padding-top: 5em;
 }
 
-.google-sing-in {
-  display: flex;
-  align-items: center;
+.external-sing-in {
+  margin: 0 0.25em;
 
-  span {
-    margin-top: 0.25em;
-    margin-left: 1em;
-    font-weight: bolder;
+  div {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-top: 0.25em;
+      margin-left: 1em;
+      font-weight: bolder;
+    }
   }
 }

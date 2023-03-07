@@ -1,12 +1,19 @@
 <main>
   <div *ngIf="!this.auth.currentUser">
     <h1>Login</h1>
-    <button appGoogleSignIn mat-raised-button>
-      <div class="google-sing-in">
+    <button appGoogleSignIn mat-raised-button class="external-sing-in">
+      <div>
         <img src="assets/logos/google.svg" height="20" alt="Google logo" />
         <span>Sign in with Google</span>
       </div>
     </button>
+    <button appGithubSingIn mat-raised-button class="external-sing-in">
+      <div>
+        <img src="assets/logos/github.svg" height="20" alt="Google logo" />
+        <span>Sign in with GitHub</span>
+      </div>
+    </button>
+
     <h5>OR</h5>
     <app-email-login></app-email-login>
   </div>

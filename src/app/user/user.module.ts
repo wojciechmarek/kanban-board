@@ -7,9 +7,10 @@ import { GoogleSignInDirective } from './google-sign-in.directive';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmailLoginComponent } from './email-login/email-login.component';
+import { GithubSingInDirective } from './github-sing-in.directive';
 
 @NgModule({
-  declarations: [LoginPageComponent, GoogleSignInDirective, EmailLoginComponent],
+  declarations: [LoginPageComponent, GoogleSignInDirective, EmailLoginComponent, GithubSingInDirective],
   imports: [CommonModule, UserRoutingModule, SharedModule, ReactiveFormsModule],
 })
 export class UserModule {}
