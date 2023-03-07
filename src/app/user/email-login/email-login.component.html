@@ -2,25 +2,41 @@
   <div *ngIf="isSignup">
     <h3>Create Account</h3>
 
-    <button mat-stroked-button (click)="changeType('login')">
+    <button
+      mat-stroked-button
+      (click)="changeType('login')"
+      class="new-returning-button"
+    >
       Returning user?
     </button>
   </div>
 
   <div *ngIf="isLogin">
     <h3>Sign In</h3>
-    <button size="small" mat-stroked-button (click)="changeType('signup')">
+    <button
+      size="small"
+      mat-stroked-button
+      (click)="changeType('signup')"
+      class="button-bottom-margin"
+    >
       New user?
     </button>
   </div>
 
   <div *ngIf="isPasswordReset">
     <h3>Reset Password</h3>
-    <button size="small" mat-button (click)="changeType('login')">Back</button>
+    <button
+      size="small"
+      mat-button
+      (click)="changeType('login')"
+      class="button-bottom-margin"
+    >
+      Back
+    </button>
   </div>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <mat-form-field [color]="email?.valid ? 'accent' : 'warn'">
+    <mat-form-field [color]="email?.valid ? 'primary' : 'warn'">
       <input
         matInput
         formControlName="email"
@@ -28,7 +44,6 @@
         placeholder="Email"
         autocomplete="off"
       />
-
       <mat-error *ngIf="email?.invalid && email?.dirty">
         You must enter a valid email address
       </mat-error>
@@ -52,7 +67,7 @@
     </mat-form-field>
 
     <mat-form-field
-      [color]="passwordDoesMatch ? 'accent' : 'warn'"
+      [color]="passwordDoesMatch ? 'primary' : 'warn'"
       *ngIf="isSignup"
     >
       <input
@@ -75,6 +90,7 @@
       mat-stroked-button
       type="submit"
       [disabled]="loading"
+      class="button-bottom-margin"
     >
       Send Reset Email
     </button>

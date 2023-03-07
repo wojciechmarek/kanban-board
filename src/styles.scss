@@ -8,43 +8,43 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-$md-custom-orange: (
-  50: #faeee7,
-  100: #f3d4c2,
-  200: #ebb79a,
-  300: #e29a72,
-  400: #dc8453,
-  500: #d66e35,
-  600: #d16630,
-  700: #cc5b28,
-  800: #c65122,
-  900: #bc3f16,
-  A100: #fff2ee,
-  A200: #ffcabb,
-  A400: #ffa188,
-  A700: #ff8d6e,
-  contrast: (
-    50: #000000,
-    100: #000000,
-    200: #000000,
-    300: #000000,
-    400: #000000,
-    500: #000000,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
-    A100: #000000,
-    A200: #000000,
-    A400: #000000,
-    A700: #000000,
-  ),
-);
+// $md-custom-orange: (
+//   50: #faeee7,
+//   100: #f3d4c2,
+//   200: #ebb79a,
+//   300: #e29a72,
+//   400: #dc8453,
+//   500: #d66e35,
+//   600: #d16630,
+//   700: #cc5b28,
+//   800: #c65122,
+//   900: #bc3f16,
+//   A100: #fff2ee,
+//   A200: #ffcabb,
+//   A400: #ffa188,
+//   A700: #ff8d6e,
+//   contrast: (
+//     50: #000000,
+//     100: #000000,
+//     200: #000000,
+//     300: #000000,
+//     400: #000000,
+//     500: #000000,
+//     600: #ffffff,
+//     700: #ffffff,
+//     800: #ffffff,
+//     900: #ffffff,
+//     A100: #000000,
+//     A200: #000000,
+//     A400: #000000,
+//     A700: #000000,
+//   ),
+// );
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$kanban-board-primary: mat.define-palette($md-custom-orange);
+$kanban-board-primary: mat.define-palette(mat.$indigo-palette);
 $kanban-board-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).

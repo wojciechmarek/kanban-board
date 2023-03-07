@@ -23,6 +23,16 @@ input {
     }
   }
 }
+
 div.mat-form-field-wrapper {
   padding-bottom: 1.15em;
+}
+
+.button-bottom-margin {
+  margin-bottom: 1em;
+}
+
+mat-form-field {
+  width: 95%;
+  margin: 0 auto;
 }
