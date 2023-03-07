@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Promise<boolean> {
-    console.log(this.auth.currentUser);
+    console.log('AuthGuard....:', this.auth.currentUser);
 
     const isLoggedIn = !!this.auth.currentUser;
 

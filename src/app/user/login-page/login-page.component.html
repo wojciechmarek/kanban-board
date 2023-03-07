@@ -17,8 +17,19 @@
     <h5>OR</h5>
     <app-email-login></app-email-login>
   </div>
-  <div *ngIf="this.auth.currentUser">
-    <h1>Logged in as {{ this.auth.currentUser.displayName }}</h1>
+  <div *ngIf="this.auth.currentUser" class="user-card-container">
+    <div class="user-card">
+      <img
+        [src]="this.auth.currentUser.photoURL"
+        alt="User photo"
+        height="100"
+      />
+      <div class="user-text-info">
+        <h2>Welcome</h2>
+        <h4>{{ this.auth.currentUser.displayName }}</h4>
+        <p>{{ this.auth.currentUser.email }}</p>
+      </div>
+    </div>
     <button mat-raised-button color="accent" (click)="this.auth.signOut()">
       Sign out
     </button>
