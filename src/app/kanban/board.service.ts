@@ -76,7 +76,7 @@ export class BoardService {
     const userBoards = await getDoc(
       doc(this.firestore, 'boards', user?.uid || '')
     );
-    return userBoards;
+    return userBoards.data() as Board[];
   }
 
   /**
