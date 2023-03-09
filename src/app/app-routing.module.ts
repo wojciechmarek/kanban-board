@@ -13,6 +13,13 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
   {
+    path: 'custom-form',
+    loadChildren: () =>
+      import('./custom-form/custom-form.module').then(
+        (m) => m.CustomFormModule
+      ),
+  },
+  {
     path: 'kanban',
     loadChildren: () =>
       import('./kanban/kanban.module').then((m) => m.KanbanModule),
