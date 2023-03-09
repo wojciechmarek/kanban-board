@@ -13,7 +13,7 @@ export class BoardComponent {
 
   constructor(private boardService: BoardService) {}
 
-  drop(event: CdkDragDrop<string[]>) {
+  taskDrop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.board.tasks, event.previousIndex, event.currentIndex);
     this.boardService.updateTasks(this.board.id || '', this.board.tasks);
   }

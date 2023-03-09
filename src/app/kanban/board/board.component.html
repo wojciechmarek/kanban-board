@@ -4,22 +4,22 @@
     <mat-card-title>
       {{ board.title }}
     </mat-card-title>
-    <!-- <mat-card-subtitle>
-      {{ board.subtitle }}
-    </mat-card-subtitle> -->
+    <mat-card-subtitle>
+      {{ board.id }}
+    </mat-card-subtitle>
   </mat-card-header>
   <div
     class="tasks"
     cdkDropList
     cdkDropListOrientation="vertical"
-    (cdkDropListDropped)="drop($event)"
+    (cdkDropListDropped)="taskDrop($event)"
   >
     <div
       class="inner-card"
       *ngFor="let task of board.tasks; let i = index"
       cdkDrag
     >
-      <mat-card [ngClass]="task.label"></mat-card>
+      <mat-card [ngClass]="task.label">{{ task.description }}</mat-card>
     </div>
   </div>
 </mat-card>

@@ -13,7 +13,7 @@ export class BoardListComponent implements OnInit, OnDestroy {
   boards: Board[] = [];
   sub: Subscription | undefined;
 
-  constructor(private boardService: BoardService) {}
+  constructor(public boardService: BoardService) {}
 
   async ngOnInit(): Promise<void> {
     this.boards = await this.boardService.getUserBoards();
@@ -22,6 +22,15 @@ export class BoardListComponent implements OnInit, OnDestroy {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
     this.boardService.sortBoards(this.boards);
+  }
+
+  createBoard() {
+    this.boardService.createBoard({
+      id: '',
+      title: 'New board',
+      priority: 0,
+      tasks: [],
+    });
   }
 
   ngOnDestroy(): void {
