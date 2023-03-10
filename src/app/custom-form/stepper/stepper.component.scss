@@ -1,0 +1,19 @@
+.stepper {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  mat-icon {
+    padding: 0 10px;
+    background-color: cadetblue;
+    margin: 3px;
+    border-radius: 5px;
+  }
+
+  span {
+    width: 20px;
+    text-align: center;
+  }
+}
