@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-classic-form',
@@ -8,23 +8,27 @@ import { FormArray, Validators, FormBuilder } from '@angular/forms';
 })
 export class ClassicFormComponent {
   constructor(private fb: FormBuilder) {}
-  profileForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    address: this.fb.group({
-      street: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      zip: ['', Validators.required],
-    }),
-    aliases: this.fb.array([this.fb.control('')]),
-  });
-
-  get aliases() {
-    return this.profileForm.get('aliases') as FormArray;
-  }
+  profileForm = this.fb.group(
+    {
+      firstName: new FormControl('', {
+        validators: [Validators.required, Validators.minLength(3)],
+        updateOn: 'blur',
+      }),
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      age: [20],
+    },
+    { validators: firstAndLastNameTheSame }
+  );
 
   onSubmit() {
     console.log(this.profileForm.value);
   }
 }
+
+const firstAndLastNameTheSame = (control: FormControl) => {
+  const firstName = control.get('firstName');
+  const lastName = control.get('lastName');
+  return firstName?.value === lastName?.value
+    ? { firstAndLastNameTheSame: true }
+    : null;
+};

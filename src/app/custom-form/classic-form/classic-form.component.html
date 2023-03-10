@@ -18,61 +18,19 @@
         formControlName="lastName"
       />
     </div>
-    <p>Address:</p>
-    <div formGroupName="address">
-      <div class="form-group">
-        <label for="street">Street</label>
-        <input
-          type="text"
-          class="form-control"
-          id="street"
-          formControlName="street"
-        />
-      </div>
-      <div class="form-group">
-        <label for="city">City</label>
-        <input
-          type="text"
-          class="form-control"
-          id="city"
-          formControlName="city"
-        />
-      </div>
-      <div class="form-group">
-        <label for="state">State</label>
-        <input
-          type="text"
-          class="form-control"
-          id="state"
-          formControlName="state"
-        />
-      </div>
-      <div class="form-group">
-        <label for="zip">Zip</label>
-        <input
-          type="text"
-          class="form-control"
-          id="zip"
-          formControlName="zip"
-        />
-      </div>
-    </div>
-
-    <p>Aliases:</p>
-    <div class="form-group" formArrayName="aliases">
-      <div *ngFor="let alias of aliases.controls; let i = index">
-        <label for="alias">Alias {{ i + 1 }}</label>
-        <input
-          type="text"
-          class="form-control"
-          id="alias"
-          [formControlName]="i"
-        />
-      </div>
+    <div class="form-group">
+      <label for="age">Last Name</label>
+      <app-stepper
+        class="form-control"
+        id="age"
+        formControlName="age"
+      />
     </div>
 
     <button type="submit" [disabled]="!profileForm.valid">Submit</button>
   </form>
 
   <p>{{ profileForm.value | json }}</p>
+  <p>is form valid: {{ profileForm.valid }}</p>
+  <p>errors: {{ profileForm.errors | json }}</p>
 </main>

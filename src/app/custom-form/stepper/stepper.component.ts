@@ -1,12 +1,32 @@
 import { Component, Input } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  FormControl,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+  ValidationErrors,
+  Validator,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: StepperComponent,
+      multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: StepperComponent,
+      multi: true,
+    },
+  ],
 })
-export class StepperComponent implements ControlValueAccessor {
+export class StepperComponent implements ControlValueAccessor, Validator {
   quantity = 1;
 
   @Input()
@@ -59,5 +79,17 @@ export class StepperComponent implements ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  validate(control: FormControl): ValidationErrors | null {
+    const quantity = control.value;
+    console.log(quantity);
+
+    if (quantity <= 0) {
+      return {
+        mustBePositive: true,
+      };
+    }
+    return null;
   }
 }
